@@ -56,12 +56,16 @@ export class AppComponent {
     //   },
     // };
     // type __A = MyKebab.Kebab<_A>;
+    // type A = {
+    //   id: number;
+    //   name: string;
+    //   age: number;
+    // };
+    // type _A = PartialByKeys.PartialByKeys<A, 'id' | 'name'>;
 
-    type A = {
-      id: number;
-      name: string;
-    };
-
-    type _A = PartialByKeys.PartialByKeys<A, 'id'>;
+    // const a: _A = {
+    //   name: '12',
+    //   age: 1,
+    // };
   }
 }
