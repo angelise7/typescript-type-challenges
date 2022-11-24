@@ -28,14 +28,40 @@ export class AppComponent {
     // type ExampleType = Promise<Promise<string>>;
     // type Result = MyAwaited.Awaited<ExampleType>; // string
     // type A = MyIf.If<Boolean(1), number, string>; // expected to be 'a'
-
     // const a: A = 1;
+    // type Result = MyConcat.Concat<[1], [2]>; // expected to be [1, 2]
+    // type isPillarMen = MyIncludes.Includes<
+    //   ['Kars', 'Esidisi', 'Wamuu', 'Santana'],
+    //   'Santana'
+    // >; // expected to be `false`
+    // type A = {
+    //   id: number;
+    //   name: string;
+    //   start_time: number;
+    //   end_time: number;
+    //   activity_product_detail: {
+    //     id: number;
+    //     activity_product_name: string;
+    //   };
+    // };
+    // type _A = MyCamel.Camel<A>;
+    // const a: _A = {
+    //   id: 1,
+    //   name: 'string',
+    //   startTime: 1244,
+    //   endTime: 1233,
+    //   activityProductDetail: {
+    //     id: 2,
+    //     activityProductName: '1121',
+    //   },
+    // };
+    // type __A = MyKebab.Kebab<_A>;
 
-    type Result = MyConcat.Concat<[1], [2]>; // expected to be [1, 2]
+    type A = {
+      id: number;
+      name: string;
+    };
 
-    type isPillarMen = MyIncludes.Includes<
-      ['Kars', 'Esidisi', 'Wamuu', 'Santana'],
-      'Santana'
-    >; // expected to be `false`
+    type _A = PartialByKeys.PartialByKeys<A, 'id'>;
   }
 }
