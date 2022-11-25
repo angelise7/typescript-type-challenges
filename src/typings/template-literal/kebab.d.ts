@@ -1,11 +1,35 @@
 declare namespace MyKebab {
-  type Kebab<T> = T extends any
+  // type A = {
+  //   id: number;
+  //   name: string;
+  //   startTime: number;
+  //   endTime: number;
+  //   activityProductDetail: {
+  //     id: number;
+  //     activityProductName: string;
+  //   };
+  // };
+
+  // type _A = Kebabize<A>;
+
+  // const a: _A = {
+  //   id: number;
+  //   name: string;
+  //   start_time: number;
+  //   end_time: number;
+  //   activity_product_detail: {
+  //     id: number;
+  //     activity_product_name: string;
+  //   };
+  // };
+
+  type Kebabize<T> = T extends any
     ? {
         [key in keyof T as KebabCaes<key & string>]: T[key] extends Record<
           string,
           any
         >
-          ? Kebab<T[key]>
+          ? Kebabize<T[key]>
           : T[key];
       }
     : never;

@@ -9,19 +9,19 @@ interface Todo {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: ``,
 })
 export class AppComponent {
-  readonly: MyReadonly.Readonly<Todo> = {
-    title: 'hello',
-    description: 'description',
-    completed: false,
-  };
+  // readonly: MyReadonly.Readonly<Todo> = {
+  //   title: 'hello',
+  //   description: 'description',
+  //   completed: false,
+  // };
 
-  pick: MyPick.Pick<Todo, 'title'> = {
-    title: '1',
-  };
+  // pick: IndexType.Pick<Todo, 'title' | 'completed'> = {
+  //   title: '1',
+  //   completed: true,
+  // };
 
   constructor() {
     // type Result = MyExclude.Exclude<'a' | 'b' | 'c', 'a'>; // 'b' | 'c';
@@ -62,10 +62,26 @@ export class AppComponent {
     //   age: number;
     // };
     // type _A = PartialByKeys.PartialByKeys<A, 'id' | 'name'>;
-
     // const a: _A = {
     //   name: '12',
     //   age: 1,
     // };
+
+    type foo = {
+      name: string;
+      age: string;
+    };
+    type coo = {
+      age: number;
+      sex: string;
+    };
+
+    //e.g.
+    type A = MyMerge.Merge<foo, coo>;
+    const a: A = {
+      name: '1',
+      age: 1,
+      sex: '1',
+    };
   }
 }

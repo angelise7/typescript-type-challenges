@@ -1,6 +1,4 @@
 declare namespace MyReplace {
-  // type replaced = Replace<'types are fun!', 'fun', 'awesome'> // expected to be 'types are awesome!'
-
   /**
    * 同String.replace()
    */
@@ -10,5 +8,6 @@ declare namespace MyReplace {
     U extends string
   > = T extends `${infer Start}${K}${infer End}` ? `${Start}${U}${End}` : never;
 
-  // type replaced = Replace<'types are fun', 'fun', 'awesome'>; // expected to be 'types are awesome!'
+  //e.g.
+  type Res = Replace<'types are fun', 'fun', 'awesome'>; // expected to be 'types are awesome!'
 }

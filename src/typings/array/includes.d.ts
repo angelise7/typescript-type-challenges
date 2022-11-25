@@ -1,14 +1,15 @@
-declare namespace MyIncludes {
-  // type isPillarMen = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Dio'> // expected to be `false`
-
-  type Equal<T, U> = T extends U ? true : false;
-
-  type Includes<T extends readonly any[], U> = T extends [
+declare namespace Includes {
+  /**
+   * 同Array.includes()
+   */
+  type Includes<T extends readonly unknown[], U> = T extends [
     infer First,
     ...infer Rest
   ]
-    ? Equal<First, U> extends true
+    ? IsEqual.IsEqual<First, U> extends true
       ? true
       : Includes<Rest, U>
     : false;
+
+  type Res = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Kars'>; // expected to be `false`
 }

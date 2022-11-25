@@ -1,10 +1,4 @@
-declare namespace MyFirst {
-  // type arr1 = ['a', 'b', 'c']
-  // type arr2 = [3, 2, 1]
-
-  // type head1 = First<arr1> // expected to be 'a'
-  // type head2 = First<arr2> // expected to be 3
-
+declare namespace First {
   /**
    * 返回数组第一个元素
    * infer 从当前条件内推断中类型可以减少对索引的依赖
@@ -12,4 +6,7 @@ declare namespace MyFirst {
   type First<T extends unknown[]> = T extends [infer first, ...unknown[]]
     ? first
     : never;
+
+  //e.g.
+  type Res = First<['a', 'b', 'c']>;
 }
