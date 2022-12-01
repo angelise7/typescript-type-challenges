@@ -1,3 +1,6 @@
+// type isPillarMen = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Dio'>;
+// // expected to be `false`
+
 declare namespace Includes {
   /**
    * 同Array.includes()
@@ -11,5 +14,6 @@ declare namespace Includes {
       : Includes<Rest, U>
     : false;
 
-  type Res = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Kars'>; // expected to be `false`
+  //e.g.
+  type Res = Includes<['Kars', 'Esidisi', 'Wamuu', 'Santana'], 'Kars'>;
 }

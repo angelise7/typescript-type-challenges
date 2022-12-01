@@ -1,3 +1,6 @@
+//Type Res= First<['a', 'b', 'c']>;
+// expected to be "a"
+
 declare namespace First {
   /**
    * 返回数组第一个元素
