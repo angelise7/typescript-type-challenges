@@ -33,7 +33,7 @@ declare namespace MyCamel {
   type A = {
     1: number;
     id: number;
-    name: string;
+    name: '1' | '2';
     start_time: number;
     end_time: number;
     activity_product_detail: {
