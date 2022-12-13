@@ -1,9 +1,12 @@
 declare namespace PartialByKeys {
-  type PartialByKeys<
-    T extends Record<string, any>,
-    K extends keyof T
-  > = Copy.Copy<Partial<Pick<T, K>> & Omit<T, K>>;
+  /**
+   * 部分属性变为可选
+   */
+  type PartialByKeys<T, K extends keyof T> = Copy.Copy<
+    Partial<Pick<T, K>> & Omit<T, K>
+  >;
 
+  //e.g.
   interface User {
     name: string;
     age: number;
