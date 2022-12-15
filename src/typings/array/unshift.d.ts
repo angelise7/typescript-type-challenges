@@ -2,7 +2,7 @@
 
 declare namespace Unshift {
   /**
-   * 同Array.unshift
+   * 同Array.unshift()
    */
   type Unshift<T extends any[], U> = T extends [...infer P] ? [U, ...P] : never;
 

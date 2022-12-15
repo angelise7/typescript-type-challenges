@@ -2,7 +2,7 @@
 
 declare namespace Push {
   /**
-   * 同Push
+   * 同Array.push()
    */
   type Push<T extends any[], A> = T extends [...infer F] ? [...F, A] : never;
 
