@@ -22,7 +22,6 @@ declare namespace MyKebab {
   //     activity_product_name: string;
   //   };
   // };
-
   type Kebabize<T> = T extends any
     ? {
         [key in keyof T as KebabCaes<key & string>]: T[key] extends Record<
@@ -33,6 +32,19 @@ declare namespace MyKebab {
           : T[key];
       }
     : never;
+  //e.g.
+  type A = {
+    id: number;
+    name: string;
+    startTime: number;
+    endTime: number;
+    activityProductDetail: {
+      id: number;
+      activityProductName: string;
+    };
+  };
+
+  type res = Kebabize<A>;
 
   /**
    * 驼峰转连字符
@@ -43,4 +55,6 @@ declare namespace MyKebab {
       ? `${L}${KebabCaes<R>}`
       : `${L}_${KebabCaes<Uncapitalize<R>>}`
     : S;
+
+  type res2 = KebabCaes<'activityProductDetail'>;
 }

@@ -1,4 +1,7 @@
 declare namespace Add {
+  /**
+   * 两数之和,利用了元组长度属性的特性[1,2,3]['length']来计算,乘除减等其余方法类似
+   */
   type BuildArray<
     Length extends number,
     Ele = unknown,
